@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        #certificate {
+            border: 10px solid #e60c0c;
+            padding: 20px;
+            width: 600px;
+            text-align: center;
+            background-color: white;
+            display: none; /* Hide by default */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .certificate-header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-bottom: 1px solid #4CAF50;
+        }
+
+        .certificate-body {
+            padding: 20px;
+        }
+
+        .certificate-footer {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-top: 1px solid #4CAF50;
+        }
+        img{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Certificate Generator</h1>
+    <input type="text" id="nameInput" placeholder="Enter Name" />
+    <input type="text" id="courseInput" placeholder="Enter Course Name" />
+    <input type="date" id="dateInput" placeholder="Enter Date" />
+    <button onclick="generateCertificate()">Generate Certificate</button>
+
+    <div id="certificate">
+        <div class="certificate-header">
+            <h5>॥ श्री गणेशाय नमः॥</h5><br>
+            
+            <img src="html.png">
+        </div>
+        <div class="certificate-body">
+            <p>This is to certify that</p>
+            <h2 id="certifiedName"></h2>
+            <p>has successfully completed the</p>
+            <h2 id="certifiedCourse"></h2>
+            <p>course on</p>
+            <h2 id="certifiedDate"></h2>
+        </div>
+        <div class="certificate-footer">
+            <p>Issued by [Your Name/Organization]</p>
+            
+        </div>
+    </div>
+
+    <script>
+        function generateCertificate() {
+            const name = document.getElementById('nameInput').value;
+            const course = document.getElementById('courseInput').value;
+            const date = document.getElementById('dateInput').value;
+
+            document.getElementById('certifiedName').innerText = name;
+            document.getElementById('certifiedCourse').innerText = course;
+            document.getElementById('certifiedDate').innerText = date;
+
+            // Show the certificate
+            const certificate = document.getElementById('certificate');
+            certificate.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
